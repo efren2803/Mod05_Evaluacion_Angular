@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Mod05_Evaluacion_Angular';
+  title = 'Módulo 05 Evaluación Spring Security';
 }

@@ -1,0 +1,72 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <h1>Módulo 05 Evaluación</h1>
+      <p>Frontend para la evaluación del Módulo 05 Spring Security</p>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+      <div class="centered-container">
+        <div class="login-card">
+          <h2 class="text-center mb-4">Inicio de Sesión</h2>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <!-- Usuario -->
+            <div class="mb-3">
+              <label class="form-label">Usuario</label>
+              <input type="text" class="form-control" formControlName="nombreUsuario"
+                [class.is-invalid]="loginForm.controls.nombreUsuario.invalid && loginForm.controls.nombreUsuario.touched"
+                placeholder="usuario">
+              @if (loginForm.controls.nombreUsuario.touched && loginForm.controls.nombreUsuario.invalid) {
+              <div class="invalid-feedback">
+                @if (loginForm.controls.nombreUsuario.errors?.['required']) {
+                <div>Email es requerido</div>
+                }
+              </div>
+              }
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mb-4">
+              <label class="form-label">Contraseña</label>
+              <input type="password" class="form-control" formControlName="password"
+                [class.is-invalid]="loginForm.controls.password.invalid && loginForm.controls.password.touched"
+                placeholder="Mínimo 3 caracteres">
+              @if (loginForm.controls.password.touched && loginForm.controls.password.invalid) {
+              <div class="invalid-feedback">
+                @if (loginForm.controls.password.errors?.['required']) {
+                <div>Contraseña es requerida</div>
+                }
+                @if (loginForm.controls.password.errors?.['minlength']) {
+                <div>Mínimo 3 caracteres</div>
+                }
+              </div>
+              }
+            </div>
+
+            <!-- Mensaje de error -->
+            @if (errorMessage()) {
+            <div class="alert alert-danger mb-3">
+              {{ errorMessage() }}
+            </div>
+            }
+
+            <br>
+            <!-- Botón de submit -->
+            <button type="submit" class="btn btn-primary w-100 py-2" [disabled]="loginForm.invalid || isLoading()">
+              @if (!isLoading()) {
+              <span>Ingresar</span>
+              }
+              @if (isLoading()) {
+              <span>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Verificando...
+              </span>
+              }
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
