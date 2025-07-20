@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <h2>Listado de Componentes</h2>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered table-full">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Precio Base</th>
+            <th scope="col">Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of listaComponentes; track $index)
+          {
+          <tr>
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.descripcion}}</td>
+            <td>{{item.marca}}</td>
+            <td>{{item.modelo}}</td>
+            <td>{{item.costo}}</td>
+            <td>{{item.precioBase}}</td>
+            <td>{{item.tipo}}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

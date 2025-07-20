@@ -25,9 +25,6 @@ export class AutenticacionService {
 
     const body = credentials;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    
-    console.log("Servicio Login");
-    console.log(credentials);
 
     return this.http.post<token>(this.uriLogin, body, { headers })
       .pipe(
